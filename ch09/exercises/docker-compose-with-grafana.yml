@@ -26,7 +26,8 @@ services:
       - app-net
 
   prometheus:
-    image: diamol/ch09-prometheus
+    # image: diamol/ch09-prometheus
+    image: hj/prometheus
     ports:
       - "9090:9090"
     environment:
@@ -35,7 +36,8 @@ services:
       - app-net
 
   grafana:
-    image: diamol/ch09-grafana
+    # image: diamol/ch09-grafana
+    image: hj/grafana
     ports:
       - "3000:3000"
     depends_on:
