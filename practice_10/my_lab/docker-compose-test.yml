@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  todo-web:
+    ports:
+      - "8080:80"
+  todo-db:
+    image: postgres:15.2
+    volumes:
+      - hjVolum:${PGDATA}/data
+    
+secrets:
+  todo-db-connection:
+    file: ./empty.json
