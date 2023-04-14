@@ -1,0 +1,46 @@
+version: "3.7"
+
+services:
+  logger:
+    image: diamol/ch09-access-log
+    deploy:
+      replicas: 3
+      resources:
+        limits:
+            cpus: "0.20"
+            memory: 100M
+    networks:
+      - lab-net
+
+  nasa_api:
+    image: diamol/ch09-image-of-the-day
+    ports:
+      - 8088:80
+    deploy:
+      replicas: 5
+      resources:
+        limits:
+            cpus: "0.20"
+            memory: 100M
+    networks:
+      - lab-net
+
+  web_app:
+    image: diamol/ch09-image-gallery
+    ports:
+      - 80:80
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+            cpus: "0.20"
+            memory: 100M
+    networks:
+      - lab-net
+
+
+networks:
+  lab-net:
+    name: lab-net
+
+
